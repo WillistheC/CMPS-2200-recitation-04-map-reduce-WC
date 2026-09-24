@@ -11,8 +11,15 @@ Place all written answers from `recitation-04.md` here for easier grading.
 
 The code splits a list of size $n$ into 2 sub-problems of size $\frac{n}{2}$
 
+This gives $W(n) = 2W(\frac{n}{2}) + 1$, and $S(n) = S(\frac{n}{2}) + 1$
 
+Work:
 
+Each level has 2 sub-problems of size $\frac{n}{2}$ giving a work of $n$ each level
+
+The base case is reached when $n = 1$ which will happen when $log_2n = 1$
+
+So $W(n) = n \cdot log_2n = \Theta(nlogn)$ 
 
 - **5) (2 pts)** What is the problem that prevents us from easily parallelizing this solution?
 
