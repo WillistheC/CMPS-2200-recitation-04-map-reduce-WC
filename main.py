@@ -21,38 +21,23 @@ def run_map_reduce(map_f, reduce_f, docs):
     # 2. group all pairs by their key
     # e.g., [('am', [1, 1]), ('ham', [1]), ('i', [1, 1]), ('is', [1]), ('sam', [1, 1])]
     groups = collect(pairs)
+    
     # 3. reduce each group to the final answer
     # e.g., [('am', 2), ('ham', 1), ('i', 2), ('is', 1), ('sam', 2)]
     return [reduce_f(g) for g in groups]
 
 def word_count_map(doc):
-    """
-    Params:
-      doc....a string to be split into tokens. split on whitespace.
-    Returns:
-      a list of tuples of form (token, 1), where token is a whitespace delimited element of this string.
-      
-    E.g.
-    >>> word_count_map('i am sam i am')
-    [('i', 1), ('am', 1), ('sam', 1), ('i', 1), ('am', 1)]
-    """
-    ###TODO
-    pass
+    words = doc.split()
+    map = [(word, 1) for word in words]
+    return map
+
 
 def word_count_reduce(group):
-    """
-    Params:
-      group...a tuple of the form (token, list_of_ones), indicating the number of times each word appears.
-    Returns:
-      tuple of form (token, int), where int is the number of times that token appears
-    E.g.
-    >>> word_count_reduce(['i', [1,1]])
-    ('i', 2)
-    
-    NOTE: you should use call the `reduce` function here.
-    """
-    ###TODO
-    pass
+    word, ones = group
+
+    total = reduce(lambda x, y: x + y, 0, ones)
+
+    return (word, total)
 
 def iterate(f, x, a):
     # done. do not change me.
