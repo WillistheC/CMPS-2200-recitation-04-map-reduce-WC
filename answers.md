@@ -21,5 +21,13 @@ The base case is reached when $n = 1$ which will happen when $log_2n = 1$
 
 So $W(n) = n \cdot log_2n = \Theta(nlogn)$ 
 
+Span:
+
+Each level has splits into size $\frac{n}{2}$
+
+The base case is reached when $n = 1$ which will happen when $log_2n = 1$
+
+So $S(n) = \frac{n}{2} \cdot log_2n = \Theta(nlogn)$
+
 - **5) (2 pts)** What is the problem that prevents us from easily parallelizing this solution?
 
