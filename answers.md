@@ -33,3 +33,5 @@ So, $S(n) = log_2n = \Theta(logn)$
 
 - **5) (2 pts)** What is the problem that prevents us from easily parallelizing this solution?
 
+Different branches working at the same time in parallel would be able to edit eachothers values, so parallelizing wouldn't be safe
+
