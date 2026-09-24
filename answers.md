@@ -15,19 +15,21 @@ This gives $W(n) = 2W(\frac{n}{2}) + 1$, and $S(n) = S(\frac{n}{2}) + 1$
 
 Work:
 
-Each level has 2 sub-problems of size $\frac{n}{2}$ giving a work of $n$ each level
+Each level has 2 sub-problems of size $\frac{n}{2}$
 
-The base case is reached when $n = 1$ which will happen when $log_2n = 1$
+However, the last level does not have work from combining
 
-So $W(n) = n \cdot log_2n = \Theta(nlogn)$ 
+So if $n = 8$; $1 + 2 + 4 = 7 = n - 1$ 
+
+So $W(n) = n - 1 = \Theta(n)$ 
 
 Span:
 
-Each level has splits into size $\frac{n}{2}$
+The longest chain of dependency is the height
 
-The base case is reached when $n = 1$ which will happen when $log_2n = 1$
+The base case is reached once $log_2n = 1$, which is the height
 
-So $S(n) = \frac{n}{2} \cdot log_2n = \Theta(nlogn)$
+So, $S(n) = log_2n = \Theta(logn)$
 
 - **5) (2 pts)** What is the problem that prevents us from easily parallelizing this solution?
 
